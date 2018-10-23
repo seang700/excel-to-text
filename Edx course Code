@@ -1,0 +1,363 @@
+users = ['val', 'bob', 'sean', 'stacey', 'lucy']
+first_user = users[0]
+second_user = users[1]
+newest_user = users[-1]
+print(first_user)
+print(second_user)
+print(newest_user)
+
+users[0] = 'valerie'
+users[1] = 'robert'
+users[2] = 'SEAN'
+
+print(users)
+
+users.append('Amy')
+users.append('paatrick')
+print(users)
+
+users = []
+users.append('valeria')
+users.append('sean')
+users.append('lucy')
+users.append('leon')
+print(users)
+
+users.insert(0,'joe')
+users.insert(3, 'bob')
+users.insert(4, 'shiela')
+users.insert(2, 'phil')
+print(users)
+
+users.remove('sean')
+users.remove('leon')
+print(users)
+
+most_recent_user = users.pop()
+first_user = users.pop()
+print(most_recent_user)
+print(first_user)
+
+num_users = len(users)
+print("we have " + str(num_users) + ' users ')
+
+for user in users:
+    print(user)
+
+for user in users:
+    print('welcome, ' + user + '!')
+
+for number in range(100):
+    print(number)
+
+ages = [93, 99, 66, 17, 85, 1, 35, 42, 98]
+youngest = min(ages)
+oldest = max(ages)
+total_years = sum(ages)
+print(youngest)
+print(oldest)
+print(total_years)
+
+finishers = ['kai', 'goose', "daniel", 'abby', 'maverick']
+first_three = finishers[:3]
+middle_three = (finishers[1:4])
+last_three = finishers[-3]
+print(first_three)
+print(middle_three)
+print(last_three)
+copy_of_finishers = finishers[:]
+print(copy_of_finishers)
+
+squares = []
+for x in range(1,11):
+    square = x**2
+    squares.append(square)
+
+    print(squares)
+
+names = ['sean', 'kai', 'stacey', 'lmg']
+upper_names = [name.upper() for name in names]
+print(upper_names)
+
+dogs = []
+dogs.append('sean')
+dogs.append('lmg')
+dogs.append('lucy')
+dogs.append('stacey')
+
+for dog in dogs:
+    print("hello " + dog + "!")
+    print("i Love these dogs")
+
+age = 19
+if age >= 18:
+    print("youre old enought to vote")
+
+age = 17
+
+if age >= 18:
+    print("youre old enought to vote")
+else:
+    print('youre not old enough to vote')
+
+age = 12
+if age < 4:
+    price = 0
+elif age < 18:
+    price = 5
+else:
+    price = 10
+print("your cost is $" + str(price) + ".")
+
+my_type = type(2)
+print(my_type)
+
+student_age = 17
+student_name = "stacey Gearin"
+print(student_name, 'will be in class for', student_age, 'year old students')
+
+def say_hi():
+    print("hello there")
+    print("goodbye")
+
+say_hi()
+
+def three_3_function():
+    print(33)
+
+three_3_function()
+
+def yell_it():
+    print("!")
+
+yell_it()
+
+def say_this(phrase):
+    print(phrase)
+
+say_this("hello")
+
+def yell_this(phrase = "good night"):
+    print(phrase.upper() + "!")
+
+yell_this("good morning")
+yell_this()
+
+def add_num(num_1 = 10):
+    print(num_1 + num_1)
+
+add_num()
+
+def msg_double(phrase):
+    double = phrase + "" + phrase
+    return double
+
+msg_2x = msg_double("lets go ")
+print(msg_2x)
+
+def half_value(value):
+    return value/2
+
+print(half_value(42))
+
+def make_schedule(period1, period2):
+    schedule = ("1st " + period1.title() + ", 2nd " + period2.title())
+    return schedule
+
+student_schedule = make_schedule("math",'history')
+print("SCHEDULE:", student_schedule)
+
+def add_numbers(num_1, num_2 = 10):
+    return num_1 + num_2
+
+print(add_numbers(100))
+
+first_name = "alton"
+print(first_name)
+
+def hat_available(color):
+    hat_colors = "black, red, green, white, blue, yellow"
+    return(color.lower() in hat_colors)
+
+have_hat = hat_available('green')
+print('Hat available is', have_hat)
+
+def bird_list(birds):
+    bird_types = "crow, robin, parrot, eagle, sandpiper, hawk"
+    return(birds.lower() in bird_types)
+
+have_bird = bird_list('PARROT')
+print('Bird available is', have_bird)
+
+
+
+score = 199
+name = input("enter your name")
+print(name, "your score is", score)
+
+name = "stacey"
+def add_score(current):
+    return current +10
+score = add_score(190)
+print(name, "your score is", score)
+
+name = input("enter your name: ")
+
+def greet(person):
+    print("hi,", person)
+
+greet(name)
+
+def fish_list(fish):
+    fish_types = "salmon, tuna, bluefin, whale, shark, haddock"
+    return(fish.lower() in fish_types)
+
+guppy_cost = input("Guppy Cost?: ")
+
+have_fish = fish_list('tuna')
+print('Fish type: ', have_fish)
+print("Guppy Cost: ", guppy_cost)
+
+if True:
+    print("this prints if the statement 'if' is true")
+else:
+    print("this prints if statement is not true")
+
+some_one_I_know = True
+
+if some_one_I_know:
+    print("How have you been?")
+else:
+    pass
+
+favorite_book = input("Enter the name of the favorite book: ")
+
+if favorite_book.istitle():
+    print(favorite_book, "- nice capitalization in that title")
+else:
+    print(favorite_book, "- tip: capitalize each word for the book titles")
+
+a_number = input("enter a positive integer number: ")
+
+if a_number.isdigit():
+    print(a_number, "its a positive integer")
+else:
+    print(a_number, "is not a positive integer")
+
+if a_number.isalpha():
+    print(a_number, "is more like a word")
+else:
+    pass
+
+hot_plate = True
+
+if hot_plate:
+    print("Be careful, hot plate!")
+else:
+    print("The plate is ready.")
+
+vehicle_type = "Truck"
+
+if vehicle_type.upper().startswith("P"):
+    print(vehicle_type, 'starts with "P"')
+else:
+    print(vehicle_type, 'does not start with "P"')
+
+x = 3
+print('x is not equal to 9 is', x !=9)
+print('x is equal to 3 is', x ==3)
+
+x = 23
+if x > 25:
+    print('x is already greater than 25')
+else:
+    print('x was', x)
+    x = 26
+    print('now x is', x)
+
+position = 19
+
+trap_value = 13
+
+if position != trap_value:
+    print('.......keep playing')
+else:
+    print("position is", trap_value, '.......GAME OVER')
+
+x = 2
+
+if x == 2:
+    print('"==" tests for, is equal to')
+else:
+    pass
+
+id = 3556
+
+if id > 2999:
+    print(id, "is a new student")
+else:
+    print(id, "is an existing student")
+
+msg = "save the notebook"
+if msg == "save the notebook":
+    print('message is as expected')
+else:
+    print("msg not expected")
+
+prediction = 'save the notebook'
+if msg.lower() == prediction.lower():
+    print("msg as expected")
+else:
+    print("msg not as expected")
+
+l_name = input("enter the last name: ")
+
+if l_name.lower() <= "C":
+    print("welcome to the ABC line")
+else:
+    print("sorry, this is the abc line")
+
+name = "Tobias"
+
+print(name == "Alton")
+
+day = "monday"
+
+if day.capitalize() == "Monday":
+    print("Start the week!")
+else:
+    pass
+
+name = "Jin Xu"
+
+if type(name) == type("Hello"):
+    print(name, "is a string entry")
+else:
+    print(name, "is not a string entry")
+
+#elif allows to check for multiple criteria
+# WHAT TO WEAR
+weather = input("Enter weather (sunny, rainy, snowy): ")
+
+if weather.lower() == "sunny":
+    print("Wear a t-shirt")
+elif weather.lower() == "rainy":
+    print("Bring an umbrella and boots")
+elif weather.lower() == "snowy":
+    print("Wear a warm coat and hat")
+else:
+    print("Sorry, not sure what to suggest for", weather)
+
+secret_num = "2"
+guess = input("Enter a guess for the secret number (1-3): ")
+
+if guess.isdigit() == False:
+    print("Invalid: guess should only use digits")
+elif guess == "1":
+    print("Guess is too low")
+elif guess == secret_num:
+    print("Guess is right")
+elif guess == "3":
+    print("Guess is too high")
+else:
+    print(guess, "is not a valid guess (1-3)")
