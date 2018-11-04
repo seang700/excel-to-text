@@ -1,0 +1,34 @@
+def integer(entry): #float turns "5.0" into 5.0
+    return float(entry)
+
+def percent(entry): #percent turns "25.00%" into 25.00
+    return float(entry[0:-1] )
+
+rows_one = ['Quarterly Revenue', "YTD Revenue", 'Quarterly Gross Profit', 'Quarterly Gross Margin', 'YTD Gross Profit', 'YTD Gross Profit Margin', 'Quarterly Adj. EBITDA', 'Quarterly Adj. EBITDA Margin', 'YTD Adj. EBITDA', 'YTD Adj. EBITDA Margin', 'Quarterly Free Cash Flow', 'YTD Free Cash Flow', 'Cash Balance', 'Senior Leverage', 'Total Leverage', 'Liquidity (Cash + Undrawn)']  #row titles on index; which rows are we interested in
+convs = [integer, integer, integer, percent, integer, percent, integer, percent, integer, percent, integer, integer, integer, integer, integer, integer]
+dates = [] #dates will be before/after as found on line 1 of the csv, columns 2 and 3
+#file = open ('C:/Users/Sean/Desktop/CFG Documents/2018.10 YTD CFG_v2.csv') #open the file
+file = open ('C:/Users/Sean/Desktop/CFG Documents/test.csv') #open the file
+
+paragraph = ''
+for line in file: #reading through each line
+    line = line.strip().split(',') #split the csv by comma
+    if line[0] != '':
+        print("---- "+line[0]+" ----")
+
+    if dates == []: #first line should contain dates, if there are no dates, we are on the first line
+        dates.append(line[3]) #storing index 3 and 7 as first and second entry to dates list
+        dates.append(line[7])
+
+    if line[1] in rows_one: # if line's index 1 (B column) is found in the list of our rows of interest
+        row_index = rows_one.index(line[1]) #numeric position/index of row keyword
+        conv_func = convs[row_index]
+        before = conv_func(line[3]) #columns that correspond to the prior year date
+        after = conv_func(line[7]) #columns that correspond to the current year date
+        diff = after - before #math!
+        #outputing findings:
+        label = "increasing" if diff >= 0 else "decreasing"
+        paragraph += line[1] + " during the period went from " + str(before) + " on " + dates[0] + " to " + str(after) + " on " + dates[1] + " " + label + " by " + str(diff) + ". "
+        if line[1] in ['YTD Revenue', 'YTD Gross Profit Margin', 'YTD Adj. EBITDA Margin', 'YTD Free Cash Flow', 'Cash Balance', 'Total Leverage', 'Liquidity (Cash + Undrawn)']:
+            print(paragraph)
+            paragraph = ''
