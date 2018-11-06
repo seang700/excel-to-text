@@ -26,11 +26,12 @@ for line in file: #reading through each line
         before = conv_func(line[4]) #columns that correspond to the prior year date
         after = conv_func(line[8]) #columns that correspond to the current year date
         diff = after - before #math!
+        diff_format = round(diff, 2)
         #outputing findings:
         label = "increasing" if diff >= 0 else "decreasing"
         growth = str(((after/before) - 1)*100)
         growth_format = ("{0:.3}".format(growth,3))
-        paragraph += line[1] + " during the period went from " + str(before) + " on " + dates[0] + " to " + str(after) + " on " + dates[1] + " " + label + " by " + str(diff) + " or " + label + " " + growth_format + ". "
+        paragraph += line[1] + " during the period went from " + str(before) + " on " + dates[0] + " to " + str(after) + " on " + dates[1] + " " + label + " by " + str(diff_format) + " or " + label + " " + growth_format + ". "
         if line[1] in ['YTD Revenue', 'YTD Gross Profit Margin', 'YTD Adj. EBITDA Margin', 'YTD Free Cash Flow', 'Cash Balance', 'Total Leverage', 'Liquidity (Cash + Undrawn)']:
             print(paragraph)
             paragraph = ''
